@@ -1,8 +1,6 @@
-/* ===============================
+/* ========================
    GLOBAL STYLES
-=============================== */
-@import url('https://fonts.googleapis.com/css2?family=Georgia:wght@400;700&family=Poppins:wght@400;500;600&display=swap');
-
+======================== */
 * {
   margin: 0;
   padding: 0;
@@ -10,192 +8,165 @@
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
-  background-color: #fdf6f0;
+  font-family: 'Arial', sans-serif;
+  background-color: #fdf6f0; /* soft neutral background */
   color: #333;
-  line-height: 1.7;
+  line-height: 1.6;
 }
 
-/* ===============================
-   NAVIGATION BAR
-=============================== */
+a {
+  text-decoration: none;
+  color: #d95d39;
+  transition: color 0.3s;
+}
+
+a:hover {
+  color: #b3472c;
+}
+
+h1, h2, h3 {
+  font-family: 'Georgia', serif;
+  color: #2c2c2c;
+  margin-bottom: 0.5em;
+}
+
+/* ========================
+   CONTAINERS
+======================== */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto 40px auto;
+  padding: 20px;
+}
+
+/* ========================
+   NAVIGATION
+======================== */
 nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
-  background: #fff;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  padding: 20px 0;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
   position: sticky;
   top: 0;
-  z-index: 1000;
+  z-index: 100;
 }
 
-.logo {
-  font-size: 1.8rem;
+nav .logo {
+  font-size: 1.5rem;
   font-weight: bold;
   color: #d95d39;
-  font-family: 'Georgia', serif;
 }
 
 nav ul {
   display: flex;
+  gap: 30px;
   list-style: none;
-  gap: 2rem;
 }
 
 nav ul li a {
-  text-decoration: none;
-  color: #333;
-  font-weight: 500;
-  padding: 0.5rem 1rem;
-  border-radius: 5px;
-  transition: 0.3s;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: all 0.3s;
 }
 
-nav ul li a:hover,
-nav ul li a.active {
-  background: #ffe5d9;
-  color: #d95d39;
+nav ul li a:hover {
+  border-bottom: 2px solid #d95d39;
+  padding-bottom: 2px;
 }
 
-.nav-auth a {
-  text-decoration: none;
-  padding: 0.5rem 1rem;
-  border-radius: 5px;
-  font-weight: 500;
-  transition: 0.3s;
-  margin-left: 10px;
-}
-
-.btn-login {
-  border: 1px solid #d95d39;
-  color: #d95d39;
-}
-
-.btn-login:hover {
-  background: #d95d39;
-  color: #fff;
-}
-
-.btn-register {
-  background: #d95d39;
-  color: #fff;
-}
-
-.btn-register:hover {
-  background: #b94c2e;
-}
-
-/* ===============================
+/* ========================
    HERO SECTION
-=============================== */
-.hero,
-.page-hero {
-  background: linear-gradient(135deg, #fff5f0 0%, #ffe5d9 100%);
-  padding: 4rem 2rem;
+======================== */
+.hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
+  min-height: 60vh;
+  background-color: #fff5f0;
+  padding: 60px 20px;
 }
 
-.hero h1,
-.page-hero h1 {
-  font-family: 'Georgia', serif;
-  font-size: 2.5rem;
-  color: #2c2c2c;
-  margin-bottom: 1rem;
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
 }
 
-.hero p,
-.page-hero p {
-  max-width: 700px;
-  margin: 0 auto;
-  color: #555;
+.hero p {
+  font-size: 1.2rem;
+  max-width: 600px;
 }
 
-/* ===============================
-   FEATURES / CONTENT
-=============================== */
-.container {
-  width: 90%;
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-.features, .about-content, .contact-content {
-  padding: 4rem 0;
-}
-
-.feature-card, .value-card, .contact-form form {
-  background: #fff;
-  padding: 2rem;
+/* ========================
+   BOOKS / POETRY LISTING
+======================== */
+.book {
+  background-color: #fff5f0;
+  padding: 25px 20px;
+  margin-bottom: 20px;
   border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-  border-left: 4px solid #d95d39;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
-/* ===============================
-   CONTACT FORM
-=============================== */
-.contact-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
+.book:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 10px rgba(0,0,0,0.15);
 }
 
-.form-group {
-  margin-bottom: 1.2rem;
+.book h3 {
+  margin-bottom: 10px;
+  color: #d95d39;
 }
 
-.form-group label {
-  display: block;
-  margin-bottom: 0.4rem;
-  font-weight: 500;
+.book p {
+  margin-bottom: 15px;
 }
 
-input, select, textarea {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-family: inherit;
+.book a {
+  font-weight: bold;
+  color: #2c2c2c;
+  transition: color 0.3s;
 }
 
-.btn-primary {
-  background: #d95d39;
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: 0.3s;
+.book a:hover {
+  color: #d95d39;
 }
 
-.btn-primary:hover {
-  background: #b94c2e;
+/* ========================
+   ABOUT & CONTACT SECTIONS
+======================== */
+.container h2 {
+  margin-top: 30px;
+  margin-bottom: 15px;
+  font-size: 1.8rem;
+  color: #2c2c2c;
 }
 
-/* ===============================
-   FOOTER
-=============================== */
-footer {
-  background: #fff;
-  padding: 1.5rem 0;
-  text-align: center;
-  color: #555;
-  font-size: 0.9rem;
-  border-top: 1px solid #eee;
+.container p {
+  margin-bottom: 15px;
+  font-size: 1rem;
 }
 
-/* ===============================
-   RESPONSIVE
-=============================== */
-@media (max-width: 900px) {
+/* ========================
+   RESPONSIVE DESIGN
+======================== */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+
   nav ul {
-    display: none;
+    flex-direction: column;
+    gap: 15px;
   }
 
-  .contact-grid {
-    grid-template-columns: 1fr;
+  .book {
+    padding: 20px;
   }
 }
-
