@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Rejoice Institute House</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .dashboard {
+            padding: 2rem 0;
+        }
+        .dashboard-header {
+            background: linear-gradient(135deg, #fff5f0 0%, #ffe5d9 100%);
+            padding: 3rem 2rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .dashboard-tabs {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        .dashboard-tab {
+            padding: 1rem 2rem;
+            background: #f8f9fa;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        .dashboard-tab.active {
+            background: #d95d39;
+            color: white;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .stats-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .stat-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .stat-card h3 {
+            font-size: 2rem;
+            color: #d95d39;
+            margin-bottom: 0.5rem;
+        }
+        .author-tools {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+        }
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        .tool-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        .tool-card:hover {
+            transform: translateY(-3px);
+        }
+        .user-menu {
+            position: relative;
+            display: inline-block;
+        }
+        .user-dropdown {
+            display: none;
+            position: absolute;
+            background: white;
+            min-width: 200px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            border-radius: 8px;
+            z-index: 1000;
+            right: 0;
+            top: 100%;
+        }
+        .user-dropdown.show {
+            display: block;
+        }
+        .dropdown-item {
+            padding: 1rem;
+            border-bottom: 1px solid #eee;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .dropdown-item:hover {
+            background: #f8f9fa;
+        }
+        .dropdown-item:last-child {
+            border-bottom: none;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">Rejoice Institute</div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="hub.html">The Hub</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="nav-auth">
+            <div class="user-menu">
+                <button class="btn-dashboard" onclick="toggleDropdown()">My Dashboard ▼</button>
+                <div class="user-dropdown" id="userDropdown">
+                    <div class="dropdown-item" onclick="showTab('profile')">👤 My Profile</div>
+                    <div class="dropdown-item" onclick="showTab('library')">📚 My Library</div>
+                    <div class="dropdown-item" onclick="showTab('saved')">💾 Saved Items</div>
+                    <div class="dropdown-item author-only" onclick="showTab('tools')" style="display: none;">🛠️ Author Tools</div>
+                    <div class="dropdown-item author-only" onclick="showTab('stats')" style="display: none;">📊 My Stats</div>
+                    <div class="dropdown-item" onclick="logoutUser()">🚪 Logout</div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="dashboard">
+        <div class="dashboard-header">
+            <h1 id="welcomeMessage">Welcome to Your Dashboard</h1>
+            <p id="userRole">Manage your content and preferences</p>
+        </div>
+
+        <div class="container">
+            <!-- Quick Stats -->
+            <div class="stats-cards">
+                <div class="stat-card">
+                    <h3 id="booksCount">0</h3>
+                    <p>Books in Library</p>
+                </div>
+                <div class="stat-card">
+                    <h3 id="savedCount">0</h3>
+                    <p>Saved Items</p>
+                </div>
+                <div class="stat-card">
+                    <h3 id="pointsCount">0</h3>
+                    <p>Reward Points</p>
+                </div>
+                <div class="stat-card author-only" style="display: none;">
+                    <h3 id="uploadsCount">0</h3>
+                    <p>Your Uploads</p>
+                </div>
+            </div>
+
+            <!-- Author Tools Section (Hidden for readers) -->
+            <div class="author-tools author-only" style="display: none;">
+                <h2>Author Publishing Tools</h2>
+                <div class="tools-grid">
+                    <div class="tool-card" onclick="showUploadForm()">
+                        <h3>📤 Upload New</h3>
+                        <p>Publish new content</p>
+                    </div>
+                    <div class="tool-card" onclick="showTab('myWorks')">
+                        <h3>📝 My Works</h3>
+                        <p>Manage your publications</p>
+                    </div>
+                    <div class="tool-card" onclick="showTab('earnings')">
+                        <h3>💰 Earnings</h3>
+                        <p>View your income</p>
+                    </div>
+                    <div class="tool-card" onclick="showTab('analytics')">
+                        <h3>📈 Analytics</h3>
+                        <p>Performance insights</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab Contents -->
+            <div id="libraryTab" class="tab-content active">
+                <h2>My Library</h2>
+                <div id="libraryContent" class="content-grid">
+                    <!-- Purchased and free content will appear here -->
+                </div>
+            </div>
+
+            <div id="savedTab" class="tab-content">
+                <h2>Saved Items</h2>
+                <div id="savedContent" class="content-grid">
+                    <!-- Saved content will appear here -->
+                </div>
+            </div>
+
+            <div id="exclusiveTab" class="tab-content">
+                <h2>Exclusive Content</h2>
+                <div id="exclusiveContent" class="content-grid">
+                    <!-- Exclusive content for subscribed users -->
+                </div>
+            </div>
+
+            <!-- Author-only Tabs -->
+            <div id="myWorksTab" class="tab-content author-only" style="display: none;">
+                <h2>My Published Works</h2>
+                <div id="myWorksContent" class="content-grid">
+                    <!-- Author's own works -->
+                </div>
+            </div>
+
+            <div id="uploadTab" class="tab-content author-only" style="display: none;">
+                <h2>Upload New Content</h2>
+                <div class="upload-form-container">
+                    <form id="uploadForm" class="upload-form">
+                        <div class="form-group">
+                            <label for="contentType">Content Type</label>
+                            <select id="contentType" required>
+                                <option value="">Select type</option>
+                                <option value="book">Book</option>
+                                <option value="art">Digital Art</option>
+                                <option value="painting">Painting</option>
+                                <option value="poem">Poem</option>
+                                <option value="research">Research Paper</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="contentTitle">Title</label>
+                            <input type="text" id="contentTitle" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contentDescription">Description</label>
+                            <textarea id="contentDescription" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="contentPrice">Price ($)</label>
+                            <input type="number" id="contentPrice" min="0" step="0.01" value="0">
+                        </div>
+                        <div class="form-group">
+                            <label for="contentCategory">Category</label>
+                            <input type="text" id="contentCategory" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contentTags">Tags (comma separated)</label>
+                            <input type="text" id="contentTags" placeholder="fiction, art, poetry...">
+                        </div>
+                        <div class="form-group">
+                            <label for="contentCover">Cover Image</label>
+                            <input type="file" id="contentCover" accept="image/*">
+                        </div>
+                        <div class="form-group">
+                            <label for="contentFile">Content File</label>
+                            <input type="file" id="contentFile" accept=".pdf,.jpg,.jpeg,.png,.docx">
+                        </div>
+                        <button type="submit" class="btn-upload">Publish Content</button>
+                    </form>
+                    <div id="uploadStatus"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Rejoice Institute House. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script type="module" src="firebase-config.js"></script>
+    <script type="module" src="auth.js"></script>
+    <script type="module" src="dashboard.js"></script>
+</body>
+</html>
+

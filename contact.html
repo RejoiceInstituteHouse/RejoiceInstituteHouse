@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Rejoice Institute House</title>
+    <link rel="stylesheet" href="https://rejoiceinstitutehouse.github.io/Rejoice-Institute-House/styles.css?v=3">
+</head>
+<body>
+    <nav>
+        <div class="logo">Rejoice Institute</div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="hub.html">The Hub</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html" class="active">Contact</a></li>
+        </ul>
+        <div class="nav-auth">
+            <a href="login.html" class="btn-login" id="loginBtn">Login</a>
+            <a href="register.html" class="btn-register" id="registerBtn">Join Free</a>
+            <div id="userNav" style="display: none;">
+                <a href="dashboard.html" class="btn-dashboard">My Dashboard</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="page-hero">
+        <div class="container">
+            <h1>Contact Us</h1>
+            <p>Get in touch with the Rejoice Institute House community</p>
+        </div>
+    </section>
+
+    <section class="contact-content">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h2>Reach Out to Us</h2>
+                    <div class="contact-item">
+                        <h3>📧 Email</h3>
+                        <p>institute@rejoicehouse.com</p>
+                    </div>
+                    <div class="contact-item">
+                        <h3>📞 Phone</h3>
+                        <p>+27 78 189 4301</p>
+                    </div>
+                    <div class="contact-item">
+                        <h3>🏛️ Address</h3>
+                        <p>166 16 London Road<br>Johannesburg, 2090</p>
+                    </div>
+                    <div class="contact-item">
+                        <h3>🕒 Office Hours</h3>
+                        <p>Monday - Friday: 9:00 AM - 5:00 PM<br>Saturday: 10:00 AM - 4:00 PM</p>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h2>Send us a Message</h2>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <select id="subject" name="subject" required>
+                                <option value="">Select a topic</option>
+                                <option value="general">General Inquiry</option>
+                                <option value="publishing">Publishing Questions</option>
+                                <option value="technical">Technical Support</option>
+                                <option value="partnership">Partnership Opportunities</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Rejoice Institute House. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script type="module" src="firebase-config.js"></script>
+    <script type="module" src="auth.js"></script>
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We will respond within 24 hours.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>

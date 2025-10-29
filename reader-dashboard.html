@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reader Dashboard | Rejoice Institute House</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="reader-dashboard.css" />
+</head>
+<body>
+  <nav>
+    <div class="logo">Rejoice Institute House</div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="books.html">Books</a></li>
+      <li><a href="logout.html" class="btn-login">Logout</a></li>
+    </ul>
+  </nav>
+
+  <section class="dashboard-container">
+    <h1>Welcome back, Reader!</h1>
+    <p>Your personal collection and recommendations are below.</p>
+
+    <div class="dashboard-sections">
+      <div class="section">
+        <h2>Free Books</h2>
+        <div class="book-grid" id="free-books"></div>
+      </div>
+
+      <div class="section">
+        <h2>Exclusive Books</h2>
+        <div class="book-grid" id="exclusive-books"></div>
+      </div>
+
+      <div class="section">
+        <h2>Purchased Books</h2>
+        <div class="book-grid" id="purchased-books"></div>
+      </div>
+
+      <div class="section">
+        <h2>My Library</h2>
+        <div class="book-grid" id="library-books"></div>
+      </div>
+    </div>
+  </section>
+
+  <script src="reader-dashboard.js"></script>
+</body>
+</html>
