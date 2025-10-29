@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - ArtHub</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">ArtHub Admin</div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="dashboard.html">User Dashboard</a></li>
+            <li><a href="admin.html">Admin Panel</a></li>
+            <li><a href="#" id="logoutBtn">Logout</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="hero">
+            <h1>Admin Dashboard</h1>
+            <p>Manage content, users, and platform settings</p>
+        </div>
+
+        <!-- ADMIN CONTROL PANELS -->
+        <div id="adminPanel">
+            <!-- Pending Content Review -->
+            <section class="admin-section">
+                <h2>Content Needing Review</h2>
+                <div id="pendingContent" class="books-grid">
+                    <!-- Pending items will appear here -->
+                </div>
+            </section>
+
+            <!-- Quick Stats -->
+            <section class="admin-section">
+                <h2>Platform Statistics</h2>
+                <div class="admin-actions">
+                    <div class="stat-card">
+                        <h3>Total Users</h3>
+                        <p id="totalUsers">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Pending Reviews</h3>
+                        <p id="pendingCount">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Total Content</h3>
+                        <p id="totalContent">0</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- User Management -->
+            <section class="admin-section">
+                <h2>User Management</h2>
+                <div class="admin-actions">
+                    <button onclick="viewAllUsers()">View All Users</button>
+                    <button onclick="manageSubscriptions()">Manage Subscriptions</button>
+                    <button onclick="viewSalesReports()">Sales Reports</button>
+                </div>
+                <div id="usersList" style="margin-top: 20px;">
+                    <!-- Users will be listed here -->
+                </div>
+            </section>
+
+            <!-- Direct Upload (You can publish without restrictions) -->
+            <section class="upload-section">
+                <h2>Direct Publishing (Admin)</h2>
+                <form id="adminUploadForm" class="upload-form">
+                    <div class="form-group">
+                        <label for="adminContentType">Content Type:</label>
+                        <select id="adminContentType" required>
+                            <option value="book">Book</option>
+                            <option value="painting">Painting/Drawing</option>
+                            <option value="poem">Poem</option>
+                            <option value="digital-art">Digital Art</option>
+                            <option value="photography">Photography</option>
+                            <option value="featured">Featured Content</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="adminContentTitle">Title:</label>
+                        <input type="text" id="adminContentTitle" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="adminContentDescription">Description:</label>
+                        <textarea id="adminContentDescription" required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="adminContentPrice">Price ($):</label>
+                        <input type="number" id="adminContentPrice" min="0" step="0.01" value="0">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="adminContentCover">Cover Image:</label>
+                        <input type="file" id="adminContentCover" accept="image/*">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="adminContentFile">Content File:</label>
+                        <input type="file" id="adminContentFile" accept=".pdf,.jpg,.jpeg,.png,.docx">
+                    </div>
+                    
+                    <button type="submit" class="btn-upload">Publish Immediately</button>
+                </form>
+                <div id="adminUploadStatus"></div>
+            </section>
+        </div>
+    </div>
+
+    <script type="module" src="admin.js"></script>
+</body>
+</html>

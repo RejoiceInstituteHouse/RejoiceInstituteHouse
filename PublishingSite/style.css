@@ -1,0 +1,201 @@
+/* ===============================
+   GLOBAL STYLES
+=============================== */
+@import url('https://fonts.googleapis.com/css2?family=Georgia:wght@400;700&family=Poppins:wght@400;500;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #fdf6f0;
+  color: #333;
+  line-height: 1.7;
+}
+
+/* ===============================
+   NAVIGATION BAR
+=============================== */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: #fff;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #d95d39;
+  font-family: 'Georgia', serif;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+  background: #ffe5d9;
+  color: #d95d39;
+}
+
+.nav-auth a {
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  font-weight: 500;
+  transition: 0.3s;
+  margin-left: 10px;
+}
+
+.btn-login {
+  border: 1px solid #d95d39;
+  color: #d95d39;
+}
+
+.btn-login:hover {
+  background: #d95d39;
+  color: #fff;
+}
+
+.btn-register {
+  background: #d95d39;
+  color: #fff;
+}
+
+.btn-register:hover {
+  background: #b94c2e;
+}
+
+/* ===============================
+   HERO SECTION
+=============================== */
+.hero,
+.page-hero {
+  background: linear-gradient(135deg, #fff5f0 0%, #ffe5d9 100%);
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.hero h1,
+.page-hero h1 {
+  font-family: 'Georgia', serif;
+  font-size: 2.5rem;
+  color: #2c2c2c;
+  margin-bottom: 1rem;
+}
+
+.hero p,
+.page-hero p {
+  max-width: 700px;
+  margin: 0 auto;
+  color: #555;
+}
+
+/* ===============================
+   FEATURES / CONTENT
+=============================== */
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.features, .about-content, .contact-content {
+  padding: 4rem 0;
+}
+
+.feature-card, .value-card, .contact-form form {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  border-left: 4px solid #d95d39;
+}
+
+/* ===============================
+   CONTACT FORM
+=============================== */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.form-group {
+  margin-bottom: 1.2rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-weight: 500;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-family: inherit;
+}
+
+.btn-primary {
+  background: #d95d39;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-primary:hover {
+  background: #b94c2e;
+}
+
+/* ===============================
+   FOOTER
+=============================== */
+footer {
+  background: #fff;
+  padding: 1.5rem 0;
+  text-align: center;
+  color: #555;
+  font-size: 0.9rem;
+  border-top: 1px solid #eee;
+}
+
+/* ===============================
+   RESPONSIVE
+=============================== */
+@media (max-width: 900px) {
+  nav ul {
+    display: none;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
+

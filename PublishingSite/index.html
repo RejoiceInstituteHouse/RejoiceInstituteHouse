@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rejoice Institute House - Creative Publishing Platform</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- NAVIGATION -->
+    <nav>
+        <div class="logo">Rejoice Institute House</div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="hub.html">The Hub</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="nav-auth">
+            <a href="login.html" class="btn-login" id="loginBtn">Login</a>
+            <a href="register.html" class="btn-register" id="registerBtn">Join Free</a>
+            <div id="userNav" style="display: none;">
+                <a href="dashboard.html" class="btn-dashboard">My Dashboard</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Welcome to Rejoice Institute House</h1>
+            <p>Where Knowledge, Creativity, and Community Converge in Perfect Harmony</p>
+            <div class="hero-buttons">
+                <a href="hub.html" class="btn-primary">Explore Our Hub</a>
+                <a href="register.html" class="btn-secondary">Begin Your Journey</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURES SECTION -->
+    <section class="features">
+        <div class="container">
+            <h2>Our Pillars of Excellence</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>📚 Literary Arts</h3>
+                    <p>Discover profound books, poetry, and literary works that inspire and transform</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🎨 Visual Arts</h3>
+                    <p>Experience stunning paintings, digital art, and creative expressions</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🏆 Scholarly Excellence</h3>
+                    <p>Participate in academic competitions and intellectual challenges</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATS SECTION -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat">
+                    <h3>5+</h3>
+                    <p>Scholars & Artists</p>
+                </div>
+                <div class="stat">
+                    <h3>10+</h3>
+                    <p>Academic Works</p>
+                </div>
+                <div class="stat">
+                    <h3>10+</h3>
+                    <p>Knowledge Seekers</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Rejoice Institute House. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script type="module" src="firebase-config.js"></script>
+    <script type="module" src="auth.js"></script>
+    <script>
+// Temporary debug script
+console.log('CSS file check:');
+const links = document.querySelectorAll('link[rel="stylesheet"]');
+links.forEach(link => {
+    console.log('Found CSS:', link.href);
+    link.onload = () => console.log('CSS loaded:', link.href);
+    link.onerror = () => console.log('CSS failed to load:', link.href);
+});
+
+// Check if CSS classes are recognized
+console.log('Navigation found:', document.querySelector('nav'));
+console.log('Hero section found:', document.querySelector('.hero'));
+console.log('Features found:', document.querySelector('.features'));
+</script>
+
+<script>
+// EMERGENCY FIX: Remove broken Firebase scripts temporarily
+document.addEventListener('DOMContentLoaded', function() {
+    // Your CSS is actually working! Let's prove it
+    console.log('CSS should be working now');
+    
+    // Force some basic styles if needed
+    document.querySelector('nav').style.backgroundColor = 'white';
+    document.querySelector('.hero').style.background = 'linear-gradient(135deg, #fff5f0 0%, #ffe5d9 100%)';
+    document.querySelector('.hero').style.padding = '4rem 2rem';
+    document.querySelector('.hero').style.textAlign = 'center';
+});
+</script>
+
+<style>
+/* EMERGENCY CSS OVERRIDE */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+    background-color: #fdf6f0 !important;
+    color: #333 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+nav {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 1rem 2rem !important;
+    background: white !important;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1) !important;
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 1000 !important;
+}
+
+.logo {
+    font-size: 1.8rem !important;
+    font-weight: bold !important;
+    color: #d95d39 !important;
+    font-family: 'Georgia', serif !important;
+}
+
+nav ul {
+    display: flex !important;
+    list-style: none !important;
+    gap: 2rem !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+nav ul li a {
+    text-decoration: none !important;
+    color: #333 !important;
+    font-weight: 500 !important;
+    padding: 0.5rem 1rem !important;
+    border-radius: 5px !important;
+}
+
+.hero {
+    background: linear-gradient(135deg, #fff5f0 0%, #ffe5d9 100%) !important;
+    padding: 4rem 2rem !important;
+    text-align: center !important;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem !important;
+    color: #2c2c2c !important;
+    margin-bottom: 1rem !important;
+    font-family: 'Georgia', serif !important;
+}
+
+.features {
+    padding: 4rem 0 !important;
+    background: white !important;
+}
+
+.feature-card {
+    background: #f8f9fa !important;
+    padding: 2rem !important;
+    border-radius: 10px !important;
+    border-left: 4px solid #d95d39 !important;
+}
+</style>
+</body>
+</html>
